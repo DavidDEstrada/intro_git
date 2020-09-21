@@ -17,7 +17,7 @@
 #include<stdlib.h>
 #include<stdio.h>
 
-void mostrar(int n, char arreglo[]);
+void mostrar(int n, char cadena[]);
 
 void capturar_enteros(){
 	int i, suma=0,enteros[5];
@@ -40,6 +40,16 @@ void capturar_enteros(){
 	printf("\n\nLa suma de los elementos es: %i y el promedio es: %.1f\n",suma,promedio);
 	
 }
+
+void mostrar(int n, char cadena[]) {
+	// Mostrar en pantalla n veces arreglo
+	int i,j;
+
+	for(i=0;i<n;i++)
+		printf("%s \n",cadena);			
+
+}
+
 int main(){
 	int cen=0,op,i;
 	int n;
@@ -62,9 +72,12 @@ int main(){
 				capturar_enteros();
 		break; 
 		case 2:
-				printf("Cuantas veces quiere mostrar el arreglo?: ");
-					scanf("%i",&n);
-				mostrar(n,&arreglo[0]);
+				printf("Escribe una cadena de hasta 20 caracteres: ");
+				fflush(stdin);
+				fgets(cadena,sizeof(cadena),stdin);
+				printf("n: ");
+				scanf("%i",&n);
+				mostrar(n,cadena);
 		break;
 		case 3:		
 				for(i=0; i<5; i++){
@@ -101,16 +114,5 @@ int main(){
 	}	
     }
     
-void mostrar(int n, char arreglo[]) {
-	// Mostrar en pantalla n veces arreglo
-	int i,j;
 
-	for(i=0;i<n;i++){	
-		for(j=0;j<7;j++){
-					printf("%c ",arreglo[j]);	
-						}
-				
-		printf("\n");
-}
-}
 
