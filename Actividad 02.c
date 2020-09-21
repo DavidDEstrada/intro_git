@@ -16,6 +16,7 @@
 */
 #include<stdlib.h>
 #include<stdio.h>
+#include "personaje.h"
 
 void mostrar(int n, char cadena[]);
 
@@ -55,16 +56,11 @@ int main(){
 	int n;
 	char cadena[20];
 	
-	struct personaje{
-	char nombre[50];
-	char tipo[50];
-	int fuerza;
-	int salud;
-     }character[5];
+	
 	
 	while(cen==0){
 	printf("Actividad 02\n");
-	printf("1. Elementos de un arreglo\n2. Funcion mostrar\n3. Estructura personaje\nElija una opcion: ");
+	printf("1. Capturar enteros\n2. Mostrar cadena\n3. Agregar personaje\n3. Mostrar personajes\nElija una opcion: ");
 	scanf("%i",&op);
 	system("cls");
 	switch (op){
@@ -79,32 +75,11 @@ int main(){
 				scanf("%i",&n);
 				mostrar(n,cadena);
 		break;
-		case 3:		
-				for(i=0; i<5; i++){
-				printf("Captura de personajes\n\n\n");
-				printf("Nombre del personaje %i: ",i+1);
-    		     fflush(stdin);gets(character[i].nombre);
-				printf("Tipo de personaje: ");
-         		     fflush(stdin);gets(character[i].tipo);
-				printf("Puntos de fuerza: ");
-          			scanf("%i",&character[i].fuerza);
-				printf("Puntos de salud: ");
-          			scanf("%i",&character[i].salud);
-				system("cls");
-                                  }
-				
-				for(i=0; i<5; i++){
-				printf("Lista de personajes\n\n\n");
-				printf("Personaje #%i:\n\nNombre: ",i+1);
-         		     puts(character[i].nombre);
-				printf("Tipo de personaje: ");
-         		     puts(character[i].tipo);
-				printf("Puntos de fuerza: ");
-          			printf("%i",character[i].fuerza);
-				printf("\nPuntos de salud: ");
-          			printf("%i\n\n",character[i].salud);
-                                  }
-			
+		case 3:	
+				capturar_personaje();
+		break;
+		case 4: 
+				mostrar_personajes();
 		break;
 		default: printf("Fuera de rango");
 	}
